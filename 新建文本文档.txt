@@ -1,0 +1,35 @@
+1.memcache
+s:	yum -y install memcached
+	vim /usr/lib/systemd/system/memcache
+	vim /etc/sysconfig/memcache
+	
+	systemctl restart memcached
+	telent ip 11211 
+c:	yum -y install php-pecl-memcache
+	vim /etc/php-fpm/www.conf
+	
+2.tomcat
+	keytool-genkeypair -alias tomcat -keyalg 
+	<connector port=8443 keystoreFile=/usr/local/tomcat/keystore keystorePass=123456 >
+	tar -xf
+	cp -p tomcat tomcat
+	<connector port=8080 appbase="webapps">
+	<context path="" docbase="base">
+3.varnish
+s:	yum -y gcc readline-devel ncurse-devel prce-devel 
+	yum -y install python-diocutils
+	tar -xf 
+	./configure&&make&&make install
+	cd 
+	cp etc/example.vcl /usr/local/default.avl
+	varnishd -f /usr/local/default.vcl -s file,/var/sss,1g
+	varnishncsa 
+c:		
+4.svn
+	yum -y install subversion
+	mkdir /var/svn
+	svnadmin create /var/svn/project1
+	cd /usr/lib/systemd/system
+	svn import . file:///var/svn/projiect1
+
+listen 443 ssl
